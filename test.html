@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+<body>
+    <input type="file" id="img" onchange="upload()">
+    <img style="height: 500px;" src="img.jpg" alt=""/>
+    <img id="compressedImg" style="height: 500px;" alt=""/>
+</body>
+<script src="compression.js"></script>
+<script>
+    function upload() {
+        let img = document.getElementById("img").files[0]
+        compressImg(img, 300).then(res => {
+            document.getElementById("compressedImg").setAttribute('src', res)
+        })
+    }
+</script>
+</html>
